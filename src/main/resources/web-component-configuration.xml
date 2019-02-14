@@ -159,9 +159,15 @@
 
     <component name="templateEngine" class="org.thymeleaf.TemplateEngine" autowireType="None">
         <property name="templateResolver">
-            <component class="org.thymeleaf.templateresolver.ClassLoaderTemplateResolver">
-                <property name="prefix" value="template/"/>
+            <!--
+             htmlファイル編集を即時反映させるため、クラスパスではなくファイルシステムからテンプレートを読み込む。
+             キャッシュ機能はオフに設定。
+             *:warファイルとしては動作しないので、開発時専用の設定
+            -->
+            <component class="org.thymeleaf.templateresolver.FileTemplateResolver">
+                <property name="prefix" value="src/main/resources/template/"/>
                 <property name="characterEncoding" value="UTF-8"/>
+                <property name="cacheable" value="false"/>
             </component>
         </property>
     </component>
