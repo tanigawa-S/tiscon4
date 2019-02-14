@@ -20,7 +20,7 @@
 
     <!-- gsp-dba-maven-pluginが使用するデータベース設定 -->
     <nablarch.db.jdbcDriver>org.h2.Driver</nablarch.db.jdbcDriver>
-    <nablarch.db.url>jdbc:h2:tcp://localhost:9092/./db/tiscon4</nablarch.db.url>
+    <nablarch.db.url>jdbc:h2:file:./db/tiscon4</nablarch.db.url>
     <nablarch.db.adminUser>sa</nablarch.db.adminUser>
     <nablarch.db.user>tiscon4</nablarch.db.user>
     <nablarch.db.password>p@ssw0rd</nablarch.db.password>
