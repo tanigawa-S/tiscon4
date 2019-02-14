@@ -62,17 +62,12 @@ IntelliJ で Mavenウィンドウ の `Execute Maven Goal` から、以下に記
 - `Execute Maven Goal` を開くには、Mavenウィンドウ上部の青い"m"の付いたアイコンをクリックします。<br>
 `Command line` に実行したいコマンドを入力して `Execute`ボタンで実行します。
 
-1. データベース(h2)を起動する。<br>
-    ```sh
-    exec:java@h2-start
-    ```
-
-2. db/ddl配下のDDLの実行からダンプファイル作成までを行う。
+1. db/ddl配下のDDLの実行からダンプファイル作成までを行う。
     ```sh
     -P gsp clean generate-resources
     ```
 
-3. アプリケーションをビルドして起動する。
+2. アプリケーションをビルドして起動する。
     ```sh
     clean compile waitt:run
     ```
