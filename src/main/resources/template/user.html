@@ -108,12 +108,28 @@
                                 </td>
                                 <td>
                                     <p>例：1990/01/01</p>
-                                    <div class="field" th:classappend="${errors.hasError('dateOfBirth')} ? 'error'">
-                                        <input type="text" name="dateOfBirth" th:value="${form.dateOfBirth}"/>
-                                        <p th:if="${errors.hasError('dateOfBirth')}"
-                                           th:text="${errors.getMessage('dateOfBirth')}" class="error-message">
+                                    <div class="field" th:classappend="${errors.hasError('year')} ? 'error'">
+                                        <input type="text" name="year" th:value="${form.year}"/>
+                                        <p th:if="${errors.hasError('year')}"
+                                           th:text="${errors.getMessage('year')}" class="error-message">
                                         </p>
                                     </div>
+                                    <select name="month">
+                                        <option value="1">1月</option>
+                                        <option value="2">2月</option>
+                                        <option value="3">3月</option>
+                                        <option value="4">4月</option>
+                                        <option value="5">5月</option>
+                                        <option value="6">6月</option>
+                                        <option value="7">7月</option>
+                                        <option value="8">8月</option>
+                                        <option value="9">9月</option>
+                                        <option value="10">10月</option>
+                                        <option value="11">11月</option>
+                                        <option value="12">12月</option>
+
+                                    </select>
+
                                 </td>
                             </tr>
                             <tr>
