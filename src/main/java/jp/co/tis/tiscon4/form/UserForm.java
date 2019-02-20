@@ -41,6 +41,7 @@ public class UserForm implements Serializable {
     /** 月 */
     private String month;
 
+    /**日 */
     private String date;
 
 
@@ -135,6 +136,14 @@ public class UserForm implements Serializable {
 
     public void setMonth(String month) {
         this.month = month;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public String getGender() {

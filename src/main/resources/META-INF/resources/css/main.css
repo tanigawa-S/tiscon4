@@ -10,6 +10,11 @@ body {
     padding-top: 80px;
 }
 
+.ui.form input[type=text] {
+    width: 50%;
+    vertical-align: top;
+}
+
 a.logo {
     font-family: 'Exo', sans-serif;
     color: #f33;
