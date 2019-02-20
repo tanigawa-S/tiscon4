@@ -35,7 +35,7 @@ public class UserForm implements Serializable {
 
     /** 生年月日 */
     @Required
-//    @Domain("dateOfBirth")
+    @Domain("dateOfBirth")
     private String year;
 
     /** 月 */
