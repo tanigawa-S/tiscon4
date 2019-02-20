@@ -62,6 +62,7 @@ public class OrderAction {
      */
     @InjectForm(form = AcceptForm.class)
     @OnError(type = ApplicationException.class, path = "acceptance.html")
+    @UseToken
     public HttpResponse inputUser(HttpRequest req, ExecutionContext ctx) {
         ctx.setRequestScopedVar("form", new UserForm());
         ctx.setRequestScopedVar("genderTypes", GenderType.values());
@@ -140,6 +141,33 @@ public class OrderAction {
     }
 
     /**
+     * 申し込み情報をデータベースに登録する。
+     *
+     * @param req リクエストコンテキスト
+     * @param ctx HTTPリクエストの処理に関連するサーバ側の情報
+     * @return HTTPレスポンス
+     */
+    @InjectForm(form = UserForm.class)
+    @OnError(type = ApplicationException.class, path = "forward://inputUserForError")
+    @OnDoubleSubmission(path = "doubleSubmissionError.html")
+    public HttpResponse createUserInfo(HttpRequest req, ExecutionContext ctx) {
+        UserForm form = ctx.getRequestScopedVar("form");
+        InsuranceOrder insOrder = SessionUtil.get(ctx, "insOrder");
+
+        // treatLadyは女性しか加入できないため、性別選択チェックを行う。
+        if (insOrder.getInsuranceType().equals("treatLady") && form.getGender().equals("male")) {
+            Message message = ValidationUtil.createMessageForProperty("gender", "tiscon4.order.inputUser.error.gender");
+            throw new ApplicationException(message);
+        }
+
+        BeanUtil.copy(form, insOrder);
+
+        UniversalDao.insert(insOrder);
+
+        return new HttpResponse("redirect://completed");
+    }
+
+    /**
      * お勤め先登録画面に入力エラーがあった時に再表示する。
      *
      * @param req リクエストコンテキスト
@@ -203,6 +231,17 @@ public class OrderAction {
         ctx.setRequestScopedVar("treatedTypes", TreatedType.values());
 
         return new HttpResponse("user.html");
+    }
+
+    /**
+     * 入力情報確認ページを表示する。
+     *
+     * @param req リクエストコンテキスト
+     * @param ctx HTTPリクエストの処理に関連するサーバ側の情報
+     * @return HTTPレスポンス
+     */
+    public HttpResponse confirmation(HttpRequest req, ExecutionContext ctx) {
+        return new HttpResponse("comfirmatioin.html");
     }
 
 }

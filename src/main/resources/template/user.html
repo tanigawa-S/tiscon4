@@ -29,7 +29,7 @@
                 <div class="user-block">
                     <h1 class="ui aligned header teal">お申込み情報</h1>
 
-                    <form class="ui form" method="post" action="/action/order/inputJob">
+                    <form id = "userInfo" class="ui form" method="post" action="/action/order/inputJob">
 
                         <div class="ui horizontal divider">ご本人について</div>
 
@@ -232,7 +232,7 @@
                                 <td>
                                     <div th:each="item : ${jobTypes}" class="field"
                                          th:classappend="${errors.hasError('job')} ? 'error'">
-                                        <input type="radio" name="job" th:value="${item.code}" th:text="${item.label}"
+                                        <input type="radio" name="job" th:value="${item.code}" onClick = "checkProfession()" th:text="${item.label}"
                                                th:field="*{job}" th:checked="${form.job}==${item.code}"/>
                                     </div>
                                     <p th:if="${errors.hasError('job')}" th:text="${errors.getMessage('job')}"
@@ -294,6 +294,28 @@
                             </tbody>
                         </table>
 
+                        <!--radioボタン処理追加-->
+                        <script type="text/javascript" >
+
+                           function checkProfession(){
+
+                            var formID = document.getElementById("userInfo");
+                            var jobNode = formID.job.value;
+                            console.log(formID);
+                            console.log("2"+jobNode);
+
+                          　if(jobNode == "主婦" || jobNode  == "学生" || jobNode == "年金受給" || jobNode == "パートアルバイト" || jobNode == "他無職"){
+                                formID.setAttribute("action","/action/order/createUserInfo");
+                            }
+                            else{formID.setAttribute("action","/action/order/inputJob");}
+                           }
+
+                      
+
+                           }
+
+                      </script>
+
                         <div class="ui column grid">
                             <div class="eight wide column left aligned">
                                 <!--/*戻る場合、formの送り先を強制的に書き換える*/-->
@@ -302,14 +324,20 @@
                                 </button>
                             </div>
                             <div class="eight wide column right aligned">
-                                <button class="ui teal button angle right icon">次へ（お勤め先情報の入力）</button>
+                                <button class="ui teal button angle right icon"  >次へ（お勤め先情報の入力）</button>
                             </div>
                         </div>
+                        <input type="hidden" name="nablarch_token" th:value="${nablarch_request_token}"/>
                     </form>
+
+
+
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
 </body>
 </html>
