@@ -35,17 +35,18 @@
 
                         <div class="ui statement">※「＊」は入力必須項目です。</div>
 
-                        <table class="ui celled table">
+                        <table class="ui celled table" >
                             <tbody>
                             <tr>
                                 <td>
-                                    <label>お名前（漢字）</label>
-                                    <p style="color:red;">＊</p>
-                                </td>
-                                <td>
+                                    <p>
+                                    <label>お名前（漢字）
+                                        <font color="red"> ＊ </font>
+                                    </label>
+                                    </p>
                                     <p>例：ＴＩＳ　太郎</p>
                                     <div class="field" th:classappend="${errors.hasError('kanjiName')} ? 'error'">
-                                        <input type="text" name="kanjiName" th:value="${form.kanjiName}"/>
+                                        <input type="text"  name="kanjiName" th:value="${form.kanjiName}"/>
                                         <p th:if="${errors.hasError('kanjiName')}"
                                            th:text="${errors.getMessage('kanjiName')}" class="error-message">
                                         </p>
@@ -54,10 +55,11 @@
                             </tr>
                             <tr>
                                 <td style="white-space: nowrap;">
-                                    <label>お名前（カタカナ）</label>
-                                    <p style="color:red;">＊</p>
-                                </td>
-                                <td>
+                                    <p>
+                                    <label>お名前（カタカナ）
+                                        <font color="red">＊</font>
+                                    </label>
+                                    </p>
                                     <p>例：ティーアイエス　タロウ</p>
                                     <div class="field" th:classappend="${errors.hasError('kanaName')} ? 'error'">
                                         <input type="text" name="kanaName" th:value="${form.kanaName}"/>
@@ -69,10 +71,11 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <label>お名前（ローマ字）</label>
-                                    <p style="color:red;">＊</p>
-                                </td>
-                                <td>
+                                    <p>
+                                    <label>お名前（ローマ字）
+                                    <font color="red">＊</font>
+                                    </label>
+                                    </p>
                                     <p>例：TIS TAROU</p>
                                     <div class="field" th:classappend="${errors.hasError('alphabetName')} ? 'error'">
                                         <input type="text" name="alphabetName" th:value="${form.alphabetName}"/>
@@ -84,10 +87,11 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <label>性別</label>
-                                    <p style="color:red;">＊</p>
-                                </td>
-                                <td>
+                                    <p>
+                                    <label>性別
+                                        <font color="red">＊</font>
+                                    </label>
+                                    </p>
                                     <div th:each="item : ${genderTypes}" class="field"
                                          th:classappend="${errors.hasError('gender')} ? 'error'">
                                         <input type="radio" name="gender" th:value="${item.code}"
@@ -103,10 +107,11 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <label>生年月日（半角）</label>
-                                    <p style="color:red;">＊</p>
-                                </td>
-                                <td>
+                                    <p>
+                                    <label>生年月日（半角）
+                                        <font color="red">＊</font>
+                                    </label>
+                                    </p>
                                     <p>例：1990/01/01</p>
                                     <div class="field" th:classappend="${errors.hasError('dateOfBirth')} ? 'error'">
                                         <input type="text" name="dateOfBirth" th:value="${form.dateOfBirth}"/>
@@ -118,10 +123,11 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <label>郵便番号（半角）</label>
-                                    <p style="color:red;">＊</p>
-                                </td>
-                                <td>
+                                    <p>
+                                    <label>郵便番号（半角）
+                                    <font color="red">＊</font>
+                                    </label>
+                                    </p>
                                     <p>例：123-4567</p>
                                     <div class="field" th:classappend="${errors.hasError('zipCode')} ? 'error'">
                                         <input type="text" class="zipcode" name="zipCode" th:value="${form.zipCode}"/>
@@ -133,10 +139,11 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <label>ご住所（全角）</label>
-                                    <p style="color:red;">＊</p>
-                                </td>
-                                <td>
+                                    <p>
+                                    <label>ご住所（全角）
+                                    <font color="red">＊</font>
+                                    </label>
+                                    </p>
                                     <p>例：東京都新宿区西新宿８－１７－１</p>
                                     <div class="field" th:classappend="${errors.hasError('address')} ? 'error'">
                                         <input type="text" name="address" th:value="${form.address}"/>
@@ -148,11 +155,12 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <label>自宅電話番号（半角）</label>
-                                    <p style="color:red;">＊</p>
-                                </td>
-                                <td>
-                                    <p>例：00-1111-2222</p>
+                                    <p>
+                                    <label>自宅電話番号（半角）
+                                        <font color="red">＊</font>
+                                    </label>
+                                    </p>
+                                        <p>例：00-1111-2222</p>
                                     <div class="field" th:classappend="${errors.hasError('homePhoneNumber')} ? 'error'">
                                         <input type="text" name="homePhoneNumber" th:value="${form.homePhoneNumber}"/>
                                         <p th:if="${errors.hasError('homePhoneNumber')}"
@@ -163,10 +171,11 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <label>携帯電話番号（半角）</label>
-                                    <p style="color:red;">＊</p>
-                                </td>
-                                <td>
+                                    <p>
+                                    <label>携帯電話番号（半角）
+                                    <font color="red">＊</font>
+                                    </label>
+                                    </p>
                                     <p>例：080-0000-0000</p>
                                     <div class="field"
                                          th:classappend="${errors.hasError('mobilePhoneNumber')} ? 'error'">
@@ -180,10 +189,11 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <label>メールアドレス（半角）</label>
-                                    <p style="color:red;">＊</p>
-                                </td>
-                                <td>
+                                    <p>
+                                    <label>メールアドレス（半角）
+                                    <font color="red">＊</font>
+                                    </label>
+                                    </p>
                                     <p>例：tiscon@example.com</p>
                                     <div class="field" th:classappend="${errors.hasError('emailAddress')} ? 'error'">
                                         <input type="text" name="emailAddress" th:value="${form.emailAddress}"/>
@@ -195,10 +205,11 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <label>配偶者有無</label>
-                                    <p style="color:red;">＊</p>
-                                </td>
-                                <td>
+                                    <p>
+                                    <label>配偶者有無
+                                    <font color="red">＊</font>
+                                    </label>
+                                    </p>
                                     <div th:each="item : ${marriedTypes}" class="field"
                                          th:classappend="${errors.hasError('married')} ? 'error'">
                                         <input type="radio" name="married" th:value="${item.code}"
@@ -212,10 +223,11 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <label>昨年の所得（半角）</label>
-                                    <p style="color:red;">＊</p>
-                                </td>
-                                <td>
+                                    <p>
+                                    <label>昨年の所得（半角）
+                                    <font color="red">＊</font>
+                                    </label>
+                                    </p>
                                     <div class="field" th:classappend="${errors.hasError('income')} ? 'error'">
                                         <input type="text" class="number" name="income" th:value="${form.income}"/><span
                                             class="unit">万円</span>
@@ -227,9 +239,11 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <label>ご職業</label>
-                                    <p style="color:red;">＊</p></td>
-                                <td>
+                                    <p>
+                                    <label>ご職業
+                                    <font color="red">＊</font>
+                                    </label>
+                                    </p>
                                     <div th:each="item : ${jobTypes}" class="field"
                                          th:classappend="${errors.hasError('job')} ? 'error'">
                                         <input type="radio" name="job" th:value="${item.code}" th:text="${item.label}"
@@ -243,8 +257,6 @@
                             <tr>
                                 <td>
                                     <label>「その他 (有職）」を選んだ方は内容をご記入下さい（全角）</label>
-                                </td>
-                                <td>
                                     <div class="field"
                                          th:classappend="|${errors.hasError('otherJob')?'error': ''} ${errors.hasError('valueOtherJob')?'error': ''}|">
                                         <input type="text" name="otherJob" th:value="${form.otherJob}"/>
@@ -259,10 +271,12 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <label>過去5年以内に、病気やケガで7日間以上にわたって医師の診察・検査・治療・投薬をうけたことがありますか</label>
-                                    <p style="color:red;">＊</p>
-                                </td>
-                                <td>
+                                    <p>
+                                    <label>過去5年以内に、病気やケガで7日間以上にわたって<br>
+                                        医師の診察・検査・治療・投薬をうけたことがありますか
+                                    <font color="red">＊</font>
+                                    </label>
+                                    </p>
                                     <div th:each="item : ${treatedTypes}" class="field"
                                          th:classappend="${errors.hasError('treatedTypes')} ? 'error'">
                                         <input type="radio" name="treated" th:value="${item.code}"
@@ -277,8 +291,6 @@
                             <tr>
                                 <td>
                                     <label>「はい」 を選んだ方は内容をご記入下さい（全角）</label>
-                                </td>
-                                <td>
                                     <div class="field"
                                          th:classappend="|${errors.hasError('medicalHistory')?'error': ''} ${errors.hasError('valueMedicalHistory')?'error': ''}|">
                                         <input type="text" name="medicalHistory" th:value="${form.medicalHistory}"/>
@@ -302,7 +314,7 @@
                                 </button>
                             </div>
                             <div class="eight wide column right aligned">
-                                <button class="ui teal button angle right icon">次へ（お勤め先情報の入力）</button>
+                                <button class="ui teal button angle right icon">次へ</button>
                             </div>
                         </div>
                     </form>
